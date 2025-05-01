@@ -10,7 +10,7 @@ from agents import deep_research, code_style
 app = func.FunctionApp()
 
 # Register the Durable Functions blueprint
-app.register_blueprint(bp)
+app.register_functions(bp)
 
 # Constants for MCP tool properties
 _SNIPPET_NAME_PROPERTY_NAME = "snippetname"
