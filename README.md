@@ -122,7 +122,7 @@ Snippy integrates with Microsoft Fabric to enable powerful data analysis capabil
 
 ### Architecture Diagram
 
-![Snippy Architecture](https://raw.githubusercontent.com/Azure-Samples/snippy/main/.github/assets/snippy-architecture.png)
+![Snippy Architecture](https://raw.githubusercontent.com/Azure-Samples/snippy/gk/fabric/.github/assets/snippy-architecture.png)
 
 ```mermaid
 graph TD
