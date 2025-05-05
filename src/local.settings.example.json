@@ -12,6 +12,7 @@
     "COSMOS_CONN": "AccountEndpoint=https://<cosmos-account-name>.documents.azure.com:443/;AccountKey=<cosmos-account-key>;",
     "PROJECT_CONNECTION_STRING": "<region>.api.azureml.ms;<workspace-id>;<project-name>;<project-name>",
     "AZURE_OPENAI_ENDPOINT": "https://<service-id>.openai.azure.com/",
-    "AZURE_OPENAI_KEY": "<your-azure-openai-key>"
+    "AZURE_OPENAI_KEY": "<your-azure-openai-key>",
+    "FABRIC_CONNECTION_NAME": "fabric-deep-research"
   }
 }
