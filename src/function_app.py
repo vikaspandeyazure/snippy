@@ -80,13 +80,10 @@ class ToolProperty:
 # Each MCP tool needs a schema definition to describe its expected inputs
 # This is how AI assistants know what parameters to provide when using these tools
 
-# Properties for the save_snippet tool
-# This tool saves code snippets with their vector embeddings
-tool_properties_save_snippets = [
-    ToolProperty(_SNIPPET_NAME_PROPERTY_NAME, "string", "A unique name or identifier for the code snippet. Provide this if you have a specific name for the snippet being saved. Essential for identifying the snippet later."),
-    ToolProperty(_PROJECT_ID_PROPERTY_NAME, "string", "An identifier for a project to associate this snippet with. Useful for organizing snippets. If omitted or not relevant, it defaults to 'default-project'."),
-    ToolProperty(_SNIPPET_PROPERTY_NAME, "string", "The actual code or text content of the snippet. Provide the content that needs to be saved and made searchable."),
-]
+# TODO: Lab Exercise 1 - Define the tool properties for save_snippet
+# Create a list of ToolProperty objects that define the expected inputs (schema)
+# Each property has a name, type, and description for the AI agent
+tool_properties_save_snippets = []
 
 # Properties for the get_snippet tool
 # This tool retrieves previously saved snippets by name
@@ -121,6 +118,8 @@ tool_properties_code_style_json = json.dumps([prop.to_dict() for prop in tool_pr
 
 # HTTP endpoint for saving snippets
 # This is accessible via standard HTTP POST requests
+# Lab Exercise 2 - Review the HTTP trigger binding
+# (No changes needed - just observe how the HTTP trigger and embeddings input work)
 @app.route(route="snippets", methods=["POST"], auth_level=func.AuthLevel.FUNCTION)
 @app.embeddings_input(arg_name="embeddings", input="{code}", input_type="rawText", model="%EMBEDDING_MODEL_DEPLOYMENT_NAME%")
 async def http_save_snippet(req: func.HttpRequest, embeddings: str) -> func.HttpResponse:
@@ -192,14 +191,12 @@ async def http_save_snippet(req: func.HttpRequest, embeddings: str) -> func.Http
 
 # MCP tool for saving snippets
 # This is accessible to AI assistants via the MCP protocol
-@app.generic_trigger(
-    arg_name="context",
-    type="mcpToolTrigger",
-    toolName="save_snippet",
-    description="Saves a given code snippet. It can take a snippet name, the snippet content, and an optional project ID. Embeddings are generated for the content to enable semantic search. The LLM should provide 'snippetname' and 'snippet' when intending to save.",
-    toolProperties=tool_properties_save_snippets_json,
-)
-@app.embeddings_input(arg_name="embeddings", input="{arguments.snippet}", input_type="rawText", model="%EMBEDDING_MODEL_DEPLOYMENT_NAME%")
+# TODO: Lab Exercise 3 - Add the MCP tool trigger binding
+# Add the @app.generic_trigger decorator to register this function as an MCP tool
+
+# TODO: Lab Exercise 4 - Add the embeddings input binding
+# Add the @app.embeddings_input decorator to enable automatic embedding generation
+
 async def mcp_save_snippet(context: str, embeddings: str) -> str:
     """
     MCP tool to save a code snippet with vector embedding.
