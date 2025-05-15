@@ -1,49 +1,6 @@
 {
-  "name": "Snippy Functions Codespace",
+  "name": "Azure Functions DevContainer",
   "dockerFile": "Dockerfile",
-  
-  "features": {
-    "ghcr.io/devcontainers/features/azure-cli:1": {},
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
-    "ghcr.io/devcontainers/features/node:1": { "version": "lts" }
-  },
-  
-  "forwardPorts": [7071],
-  
-  "secrets": {
-    "AzureWebJobsStorage": { "default": "UseDevelopmentStorage=true" },
-    "COSMOS_CONN": {},
-    "AZURE_OPENAI_ENDPOINT": {},
-    "AZURE_OPENAI_KEY": {},
-    "PROJECT_CONNECTION_STRING": {}
-  },
-  
   "postCreateCommand": "./.devcontainer/setup.sh",
-  "postStartCommand": "bash .devcontainer/start.sh",
-  
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-azuretools.vscode-azurefunctions",
-        "ms-azuretools.vscode-docker",
-        "GitHub.copilot",
-        "Azurite.azurite"
-      ]
-    }
-  },
-  
-  "mounts": [
-    "source=codespaces-linux-var-lib-docker,target=/var/lib/docker,type=volume"
-  ],
-  
-  "overrideCommand": false,
-  "remoteUser": "codespace",
-  
-  "runArgs": [
-    "--cap-add=SYS_PTRACE",
-    "--security-opt",
-    "seccomp=unconfined",
-    "--init",
-    "--privileged"
-  ]
+  "postStartCommand": "bash .devcontainer/start.sh"
 }
