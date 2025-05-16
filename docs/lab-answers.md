@@ -49,7 +49,7 @@ Directly above the `mcp_save_snippet` function (after the MCP trigger), add the 
     arg_name="embeddings", 
     input="{arguments." + _SNIPPET_PROPERTY_NAME + "}", 
     input_type="rawText", 
-    model="%EMBEDDING_MODEL_DEPLOYMENT_NAME%"
+    embeddings_model="%EMBEDDING_MODEL_DEPLOYMENT_NAME%"
 )
 ```
 
