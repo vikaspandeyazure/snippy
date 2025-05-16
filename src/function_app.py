@@ -121,7 +121,7 @@ tool_properties_code_style_json = json.dumps([prop.to_dict() for prop in tool_pr
 # Lab Exercise 2 - Review the HTTP trigger binding
 # (No changes needed - just observe how the HTTP trigger and embeddings input work)
 @app.route(route="snippets", methods=["POST"], auth_level=func.AuthLevel.FUNCTION)
-@app.embeddings_input(arg_name="embeddings", input="{code}", input_type="rawText", embeddingsModel="%EMBEDDING_MODEL_DEPLOYMENT_NAME%")
+@app.embeddings_input(arg_name="embeddings", input="{code}", input_type="rawText", embeddings_model="%EMBEDDING_MODEL_DEPLOYMENT_NAME%")
 async def http_save_snippet(req: func.HttpRequest, embeddings: str) -> func.HttpResponse:
     """
     HTTP trigger function to save a code snippet with its vector embedding.
