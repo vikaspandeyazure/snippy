@@ -118,7 +118,7 @@ tool_properties_code_style_json = json.dumps([prop.to_dict() for prop in tool_pr
 
 # HTTP endpoint for saving snippets
 # This is accessible via standard HTTP POST requests
-# Lab Exercise 2 - Review the HTTP trigger binding
+# Lab Review - HTTP trigger binding
 # (No changes needed - just observe how the HTTP trigger and embeddings input work)
 @app.route(route="snippets", methods=["POST"], auth_level=func.AuthLevel.FUNCTION)
 @app.embeddings_input(arg_name="embeddings", input="{code}", input_type="rawText", embeddings_model="%EMBEDDING_MODEL_DEPLOYMENT_NAME%")
@@ -191,10 +191,10 @@ async def http_save_snippet(req: func.HttpRequest, embeddings: str) -> func.Http
 
 # MCP tool for saving snippets
 # This is accessible to AI assistants via the MCP protocol
-# TODO: Lab Exercise 3 - Add the MCP tool trigger binding
+# TODO: Lab Exercise 2 - Add the MCP tool trigger binding
 # Add the @app.generic_trigger decorator to register this function as an MCP tool
 
-# TODO: Lab Exercise 4 - Add the embeddings input binding
+# TODO: Lab Exercise 3 - Add the embeddings input binding
 # Add the @app.embeddings_input decorator to enable automatic embedding generation
 
 async def mcp_save_snippet(context: str, embeddings: str) -> str:
