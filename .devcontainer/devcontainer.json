@@ -1,6 +1,6 @@
 {
-  "name": "Snippy - Azure Functions DevContainer",
+  "name": "Azure Functions DevContainer",
   "dockerFile": "Dockerfile",
-  "postCreateCommand": "/bin/sh .devcontainer/setup.sh",
-  "postStartCommand":  "/bin/sh .devcontainer/start.sh"
+  "postCreateCommand": "sh ./.devcontainer/setup.sh",
+  "shutdownAction": "stopContainer"
 }
