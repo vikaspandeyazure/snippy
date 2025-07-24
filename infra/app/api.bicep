@@ -35,6 +35,7 @@ module appServicePlan 'br/public:avm/res/web/serverfarm:0.1.1' = {
     sku: {
       name: 'FC1'
       tier: 'FlexConsumption'
+      capacity: 1
     }
     reserved: true
   }
